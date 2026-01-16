@@ -189,12 +189,23 @@ def parse_manual_schedule(text: str):
 def render_schedule_cards(schedule):
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
     st.subheader("생성된 스케줄")
+
+    output_lines = []
     for day in DAYS:
-        names = schedule[day]
-        line = " · ".join(names) if names else "휴무/없음"
-        st.markdown(f"**{day}**  \n<span class='day-line'>{line}</span>", unsafe_allow_html=True)
-        st.divider()
+        names = " ".join(schedule[day]) if schedule[day] else "휴무/없음"
+        output_lines.append(f"{day} {names}")
+
+    copy_text = "\n".join(output_lines)
+
+    st.text_area(
+        "",
+        copy_text,
+        height=180,
+        label_visibility="collapsed",
+    )
+
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 def render_employee_table(assigned_count, assigned_by_employee):
@@ -301,14 +312,7 @@ if gen_clicked:
                     f"{d}요일: 필요한 인원({required[d]})을 채우지 못했습니다. (배정: {len(schedule[d])})"
                 )
 
-        # 복사용 텍스트는 접어두기
-        with st.expander("복사용 텍스트 열기", expanded=False):
-            output_lines = []
-            for day in DAYS:
-                names = " ".join(schedule[day]) if schedule[day] else "휴무/없음"
-                output_lines.append(f"{day} {names}")
-            copy_text = "\n".join(output_lines)
-            st.text_area("복사용", copy_text, height=180, label_visibility="collapsed")
+        
 
 st.divider()
 
