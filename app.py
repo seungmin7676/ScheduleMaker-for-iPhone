@@ -44,7 +44,7 @@ hr { margin: 0.5rem 0; }
     unsafe_allow_html=True,
 )
 
-st.title("화포식당 스케줄 자동 생성기")
+st.title("스케줄 자동 생성기")
 
 # -----------------------------
 # Constants
