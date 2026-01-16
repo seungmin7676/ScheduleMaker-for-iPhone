@@ -225,7 +225,7 @@ st.subheader("1) 요일별 필요 인원")
 required = {}
 for day in DAYS:
     required[day] = st.number_input(
-        f"{day}요일 필요 인원",
+        f"{day}요일",
         min_value=0,
         max_value=6,
         value=3,
