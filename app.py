@@ -153,7 +153,7 @@ def generate_schedule(employees_available, required):
 
 
 def build_assigned_by_employee(schedule, employees_available):
-    """schedule(요일->직원들)로부터 직원별 배정 요일 리스트를 만든다."""
+    """"""
     assigned_by_employee = {e: [] for e in employees_available}
     for day in DAYS:
         for name in schedule[day]:
@@ -220,6 +220,7 @@ def render_employee_table(assigned_count, assigned_by_employee):
     st.markdown("</div>", unsafe_allow_html=True)
 
 
+st.divider()
 # -----------------------------
 # 1) Required staff per day (2 columns)
 # -----------------------------
@@ -239,6 +240,9 @@ for day in DAYS:
     )
 
 st.markdown("</div>", unsafe_allow_html=True)
+
+
+st.divider()
 
 # -----------------------------
 # 2) Blocked days input
