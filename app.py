@@ -12,14 +12,8 @@ st.markdown(
 /* 모바일에서 좌우 여백/폭 최적화 */
 .block-container { padding-top: 1.1rem; padding-bottom: 2.0rem; max-width: 760px; }
 
-/* 카드 UI */
-.section-card {
-  border: 1px solid rgba(49,51,63,.18);
-  border-radius: 16px;
-  padding: 14px 14px;
-  margin: 12px 0;
-  background: rgba(255,255,255,.03);
-}
+
+
 
 /* 섹션 타이틀 간격 */
 .section-title { margin-bottom: .25rem; }
