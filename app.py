@@ -39,6 +39,16 @@ div[data-baseweb="textarea"] textarea { font-size: 0.95rem; line-height: 1.4; }
 
 /* divider 여백 줄이기 */
 hr { margin: 0.5rem 0; }
+
+/* required section에서 columns를 모바일에서도 2열 유지 */
+.required-grid [data-testid="stHorizontalBlock"] {
+  flex-wrap: nowrap !important;
+  gap: 0.75rem !important;
+}
+.required-grid [data-testid="stColumn"] {
+  min-width: 0 !important;
+}
+
 </style>
 """,
     unsafe_allow_html=True,
@@ -208,23 +218,19 @@ def render_employee_table(assigned_count, assigned_by_employee):
 # -----------------------------
 # 1) Required staff per day (2 columns)
 # -----------------------------
-st.markdown('<div class="section-card">', unsafe_allow_html=True)
+st.markdown('<div class="section-card required-grid">', unsafe_allow_html=True)
 st.subheader("1) 요일별 필요 인원")
 
-
 required = {}
-cols = st.columns(2)
+cols = st.columns(2, gap="small")  #
 for i, day in enumerate(DAYS):
     with cols[i % 2]:
         required[day] = st.number_input(
-            f"{day}요일",
-            min_value=0,
-            max_value=6,
-            value=3,
-            step=1,
-            key=f"req_{day}",
+            f"{day}요일", min_value=0, max_value=6, value=3, step=1, key=f"req_{day}"
         )
+
 st.markdown("</div>", unsafe_allow_html=True)
+
 
 # -----------------------------
 # 2) Blocked days input
