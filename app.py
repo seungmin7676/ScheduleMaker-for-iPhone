@@ -302,7 +302,7 @@ if gen_clicked:
         if min3_success:
             st.success("모든 인원이 주 3일 이상 근무하도록 배치되었습니다.")
         else:
-            st.info("3일 배치는 불가능하여, 최소 2일 이상으로 맞췄어요.")
+            st.info("모든 인원 3일 이상 배치 불가")
 
         if unmet:
             for d in unmet:
