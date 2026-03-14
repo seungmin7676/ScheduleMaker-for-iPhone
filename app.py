@@ -9,32 +9,14 @@ st.set_page_config(page_title="스케줄 자동 생성기", layout="centered")
 st.markdown(
     """
 <style>
-/* 모바일에서 좌우 여백/폭 최적화 */
 .block-container { padding-top: 1.1rem; padding-bottom: 2.0rem; max-width: 760px; }
-
-
-
-
-/* 섹션 타이틀 간격 */
 .section-title { margin-bottom: .25rem; }
-
-/* 작은 안내문 */
 .small-muted { color: rgba(49,51,63,.7); font-size: 0.92rem; line-height: 1.35; }
-
-/* 버튼은 모바일에서 꽉 차게 */
 button[kind="primary"] { width: 100%; }
-
-/* 입력 높이 살짝 키워서 모바일 터치 편하게 */
 div[data-baseweb="input"] input { height: 2.6rem; }
 div[data-baseweb="textarea"] textarea { font-size: 0.95rem; line-height: 1.4; }
-
-/* 요일 라인 */
 .day-line { font-size: 1.02rem; }
-
-/* divider 여백 줄이기 */
 hr { margin: 0.5rem 0; }
-
-/* required section에서 columns를 모바일에서도 2열 유지 */
 .required-grid [data-testid="stHorizontalBlock"] {
   flex-wrap: nowrap !important;
   gap: 0.75rem !important;
@@ -266,7 +248,7 @@ employees_available = {}
 for name, blocked in employees_blocked.items():
     employees_available[name] = [d for d in DAYS if d not in blocked]
 
-# 가능한 요일 미리보기 (모바일에선 접어두는 게 깔끔)
+# 가능한 요일 미리보기
 with st.expander("직원별 가능한 요일 보기", expanded=False):
     if employees_available:
         for name, avail in employees_available.items():
